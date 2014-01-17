@@ -1,20 +1,70 @@
 
 //jQuery commands are loaded (do your magic)
-	var userExpenceDailyList=[{"#":1,"Name":"Stalin","Price":400},{"#":2,"Name":"Sunil","Price":1500},{"#":3,"Name":"Akshy","Price":1400},{"#":4,"Name":"Amitabh","Price":1300}];
-	var userExpenceMonthlyList=[{"#":1,"Name":"Stalin","Price":1500},{"#":2,"Name":"Sunil","Price":1600},{"#":3,"Name":"Akshy","Price":1400}];
+	/*var userExpenceDailyList=[{"#":1,"Name":"Stalin","Price":400},{"#":2,"Name":"Sunil","Price":1500},{"#":3,"Name":"Akshy","Price":1400},{"#":4,"Name":"Amitabh","Price":1300}];
+	var userExpenceMonthlyList=[{"No":1,"Name":"Sunil","Price":100},{"No":2,"Name":"Stalin","Price":200},{"No":3,"Name":"Sada","Price":200}];
 	var messExpenceDailyList=[{"#":1,"Date":"1st Nov","Price":300},{"#":2,"Date":"2nd Nov","Price":400}];
 	var messExpenceMonthlyList=[{"#":1,"Month":"Jan","Price":1500},{"#":2,"Month":"Feb","Price":3200},{"#":3,"Name":"Akshy","Price":1400}];
+*/
 
 
+	var temp;
+	
+	var userExpenceDailyList;
+	var userExpenceMonthlyList;
+	var messExpenceDailyList;
+	var messExpenceMonthlyList;
+	
+	$.get("http://localhost:8080/ems/userexpence/daily/json")
+    .success( function( returned_data ){   
+    	
+    	document.getElementById("col1").innerHTML = myPanel("User Expence:Daily",
+    			returned_data,0,1);
+    	this.userExpenceDailyList=returned_data;
+    	
+} );
+	
+	$.get("http://localhost:8080/ems/userexpence/monthly/json")
+    .success( function( returned_data ){   
+    	
+    
+    	document.getElementById("col2").innerHTML = myPanel("User Expence:Monthly",
+    			returned_data,0,2);     	
+    	this.userExpencemMonthlyList=returned_data;
+} );
+	
+	$.get("http://localhost:8080/ems/messexpence/daily/json")
+    .success( function( returned_data ){   
+    	
+    
+    	document.getElementById("col3").innerHTML = myPanel("Mess Expence:Daily ",
+    			returned_data,0,3);
+    	this.messExpenceDailyList=returned_data;
+    	
+} );
+	
+	$.get("http://localhost:8080/ems/messexpence/monthly/json")
+    .success( function( returned_data ){   
+    	
+    	  document.getElementById("col4").innerHTML = myPanel("Mess Expence:Monthly",
+    			  returned_data,0,4);
+    	  this.messExpenceMonthlyList=returned_data;
+} );
+	
+	
+	
+/*	var userExpenceDailyList=temp;
+	var userExpenceMonthlyList=temp;
+	var messExpenceDailyList=temp;
+	var messExpenceMonthlyList=temp;*/
 
-document.getElementById("col1").innerHTML = myPanel("User Expence:Daily",
+/*document.getElementById("col1").innerHTML = myPanel("User Expence:Daily",
 		userExpenceDailyList,2,1);
 document.getElementById("col2").innerHTML = myPanel("User Expence:Monthly",
 		userExpenceMonthlyList,2,2);
 document.getElementById("col3").innerHTML = myPanel("Mess Expence:Daily ",
 		messExpenceDailyList,2,3);
 document.getElementById("col4").innerHTML = myPanel("Mess Expence:Monthly",
-		messExpenceMonthlyList,2,4);
+		messExpenceMonthlyList,2,4);*/
 
 
 
@@ -25,6 +75,8 @@ document.getElementById("col4").innerHTML = myPanel("Mess Expence:Monthly",
 
 function expandTable1()
 {
+	
+	alert("hey");
 	document.getElementById("col1").innerHTML = myPanel("User Expence:Daily",
 			userExpenceDailyList,0,1);	
 	
@@ -32,6 +84,7 @@ function expandTable1()
 
 function expandTable2()
 {
+	alert("hey");
 	document.getElementById("col2").innerHTML = myPanel("User Expence:Monthly",
 			userExpenceMonthlyList,0,2);
 	
@@ -39,6 +92,7 @@ function expandTable2()
 }
 function expandTable3()
 {
+	alert("hey");
 	document.getElementById("col3").innerHTML = myPanel("Mess Expence:Daily ",
 			messExpenceDailyList,0,3);
 		
@@ -46,6 +100,7 @@ function expandTable3()
 }
 function expandTable4()
 {
+	alert("hey");
 	document.getElementById("col4").innerHTML = myPanel("Mess Expence:Monthly",
 			messExpenceMonthlyList,0,4);
 	

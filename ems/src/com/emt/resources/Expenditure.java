@@ -4,14 +4,14 @@ import java.util.Date;
 
 
 
-public class Expenditure{
-	
-	
+public class Expenditure{	
 	
 	private int expId;
-	private String expItemName;
-	private String expPrice;
-	private Date expDate;
+	private String spender;
+	private String itemName;
+	private int itemPrice;
+	
+	private Date date;
 	
 
 	public int getExpId() {
@@ -20,23 +20,31 @@ public class Expenditure{
 	public void setExpId(int expId) {
 		this.expId = expId;
 	}
-	public String getExpItemName() {
-		return expItemName;
+	public String getItemName() {
+		return itemName;
 	}
-	public void setExpItemName(String expItemName) {
-		this.expItemName = expItemName;
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
-	public String getExpPrice() {
-		return expPrice;
+
+	public String getSpender() {
+		return spender;
 	}
-	public void setExpPrice(String expPrice) {
-		this.expPrice = expPrice;
+	public void setSpender(String spender) {
+		this.spender = spender;
 	}
-	public Date getExpDate() {
-		return expDate;
+	public Date getDate() {
+		return date;
 	}
-	public void setExpDate(Date expDate) {
-		this.expDate = expDate;
-	}	
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public int getItemPrice() {
+		return itemPrice;
+	}
+	public void setItemPrice(int itemPrice) {
+		this.itemPrice = itemPrice;
+	}
+	
 
 }
